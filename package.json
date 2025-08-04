@@ -1,8 +1,7 @@
 {
   "name": "plaza-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "outputDir": "./lib",
-  
   "exports": {
     "import": {
       "types": "./lib/esm/index.d.ts",
