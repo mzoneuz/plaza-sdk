@@ -1,0 +1,70 @@
+{
+  "name": "plaza-sdk",
+  "version": "1.0.0",
+  "outputDir": "./lib",
+  
+  "exports": {
+    "import": {
+      "types": "./lib/esm/index.d.ts",
+      "default": "./lib/esm/index.js"
+    },
+    "require": {
+      "types": "./lib/cjs/index.d.ts",
+      "default": "./lib/cjs/index.js"
+    },
+    "types": "./lib/esm/index.d.ts"
+  },
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "yarn clean && rollup -c",
+    "clean": "rimraf lib",
+    "start": "node dist/bundle.js",
+    "typecheck": "tsc --noEmit true",
+    "lint": "eslint . --quiet --max-warnings 0",
+    "prettify": "prettier --write \"{src,tools,public}/**/*.{json,ts,tsx,js,jsx,md,scss,css,html}\""
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "npm": "please-use-yarn",
+    "yarn": ">= 1",
+    "node": ">=20"
+  },
+  "author": {
+    "name": "Suhrobbek Soatov",
+    "url": "https://soatov.uz",
+    "email": "svkhrobbeck@gmail.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/lodash": "^4.17.20",
+    "eslint": "^9.32.0",
+    "globals": "^16.3.0",
+    "jiti": "^2.5.1",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.46.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.8.1",
+    "typescript": "5.8.3",
+    "typescript-eslint": "^8.38.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": "^8.38.0",
+    "axios": "^1.11.0",
+    "eslint-config-prettier": "^10.1.8",
+    "lodash": "^4.17.21"
+  }
+}
