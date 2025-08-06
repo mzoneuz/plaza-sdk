@@ -5,20 +5,20 @@ import * as Params from "./params";
 import * as Mappers from "./mappers";
 import { CallerParam, CallerParamPayload } from "@/common/types";
 
-export const ArchiveProduct: CallerParam<Params.SkuIdBasedParams> = (uzumHttp, { token, shopId, skuId }) => {
-  return uzumHttp.post<Types.IApi.ArchiveProduct.Response>(`/seller/shop/${shopId}/product/sku/${skuId}/archive`, null, {
+export const ArchiveProduct: CallerParam<Params.SkuIdBasedParams, Types.IApi.ArchiveProduct.Response> = (uzumHttp, { token, shopId, skuId }) => {
+  return uzumHttp.post(`/seller/shop/${shopId}/product/sku/${skuId}/archive`, null, {
     headers: pasteAuthHeader(token),
   });
 };
 
-export const UnarchiveProduct: CallerParam<Params.SkuIdBasedParams> = (uzumHttp, { token, shopId, skuId }) => {
-  return uzumHttp.post<Types.IApi.UnarchiveProduct.Response>(`/seller/shop/${shopId}/product/sku/${skuId}/archive/restore`, null, {
+export const UnarchiveProduct: CallerParam<Params.SkuIdBasedParams, Types.IApi.UnarchiveProduct.Response> = (uzumHttp, { token, shopId, skuId }) => {
+  return uzumHttp.post(`/seller/shop/${shopId}/product/sku/${skuId}/archive/restore`, null, {
     headers: pasteAuthHeader(token),
   });
 };
 
-export const ProductsList: CallerParam<Params.ProductListParams> = async (uzumHttp, params) => {
-  return await uzumHttp.get<Types.IApi.ProductsList.Response>(`/seller/shop/${params.shopId}/product/getProducts`, {
+export const ProductsList: CallerParam<Params.ProductListParams, Types.IApi.ProductsList.Response> = async (uzumHttp, params) => {
+  return await uzumHttp.get(`/seller/shop/${params.shopId}/product/getProducts`, {
     params: Mappers.ProductListParamsMapper(params),
     headers: pasteAuthHeader(params.token),
   });
@@ -30,4 +30,17 @@ export const RemovePromotion: CallerParamPayload<Params.TokenAndShopId, Types.IA
 
 export const AddPromotion: CallerParamPayload<Params.TokenAndShopId, Types.IApi.AddPromotion.Request> = (uzumHttp, params, payload) => {
   return uzumHttp.post(`/seller/shop/${params.shopId}/marketing/calendar-event/add`, payload, { headers: pasteAuthHeader(params.token) });
+};
+
+export const InvolvedProductsList: CallerParam<Params.InvolvedProductsParams> = async (uzumHttp, params) => {
+  return uzumHttp.get(`/seller/shop/${params.shopId}/marketing/calendar-event/products-involved`, {
+    params: { eventId: params.eventId, page: params.page, size: params.size },
+    headers: pasteAuthHeader(params.token),
+  });
+};
+
+export const ProductDescription: CallerParam<Params.ProductIdBasedParams, Types.IApi.ProductDescription.Response> = async (uzumHttp, params) => {
+  return uzumHttp.get(`/seller/shop/${params.shopId}/product/${params.productId}/description-response`, {
+    headers: pasteAuthHeader(params.token),
+  });
 };

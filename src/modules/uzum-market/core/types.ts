@@ -18,6 +18,14 @@ export declare namespace UzumMarketEntity {
     commission: number;
   }
 
+  export interface FilledSkuItem extends SkuCore {
+    dimensions: Dimensions;
+    article: string | null;
+    switchbackActive: boolean;
+    marketPrice: number;
+    blockReasons: unknown[];
+  }
+
   export interface SkuWithDetails extends SkuCore {
     dimensions: Dimensions;
     article: StringNullable;

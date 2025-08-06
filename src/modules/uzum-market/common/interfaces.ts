@@ -41,3 +41,44 @@ export interface SkuCharacteristic {
   definedType: boolean;
   characteristicValue: IMultiLang;
 }
+
+export interface CommissionDto {
+  minCommission: number;
+  maxCommission: number;
+}
+
+export interface CharacteristicValue {
+  title: IMultiLang;
+  value: string;
+  skuValue: string;
+  wantToPhotoStudio: boolean | null;
+}
+
+export interface DefinedCharacteristic {
+  orderingNumber: number;
+  characteristicValues: CharacteristicValue[];
+  characteristicTitle: IMultiLang;
+  characteristicId: number | null;
+  defined: boolean;
+  requiredType?: string;
+}
+
+export interface FilterValue {
+  id: number;
+  value: string;
+  title: string;
+  predefined: boolean;
+  isApproved: boolean | null;
+}
+
+export interface Filter {
+  id: number;
+  title: string;
+  description: string | null;
+  extendableValues: boolean;
+  required: boolean;
+  values: FilterValue[];
+  emptyValue: FilterValue;
+  maxLength: number | null;
+  brandFilter: boolean;
+}
