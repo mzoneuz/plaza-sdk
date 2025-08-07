@@ -2,4 +2,5 @@
 export * from "./common/utils";
 
 // ** core **
+export * from "./core/auth";
 export * from "./core/products";
