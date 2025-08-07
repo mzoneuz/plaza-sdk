@@ -3,18 +3,20 @@
   "version": "1.0.4",
   "outputDir": "./lib",
   "exports": {
-    "import": {
-      "types": "./lib/esm/index.d.ts",
-      "default": "./lib/esm/index.js",
-      "uzum-market": "./lib/esm/modules/uzum-market-api/index.js"
+    ".": {
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js"
     },
-    "require": {
-      "types": "./lib/cjs/index.d.ts",
-      "default": "./lib/cjs/index.js",
-      "uzum-market": "./lib/cjs/modules/uzum-market-api/index.js"
+    "./uzum-market": {
+      "import": "./lib/esm/modules/uzum-market-api/index.js",
+      "require": "./lib/cjs/modules/uzum-market-api/index.js"
     },
-    "types": "./lib/esm/index.d.ts"
+    "./alif-shop": {
+      "import": "./lib/esm/modules/alif-shop-api/index.js",
+      "require": "./lib/cjs/modules/alif-shop-api/index.js"
+    }
   },
+  "types": "./lib/esm/index.d.ts",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "files": [
@@ -32,6 +34,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": false,
   "engines": {
     "npm": "please-use-yarn",
     "yarn": ">= 1",
