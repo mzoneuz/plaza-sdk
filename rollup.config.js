@@ -1,10 +1,13 @@
 import ts from "typescript";
 import json from "@rollup/plugin-json";
+// import alias from "@rollup/plugin-alias";
+import dts from "rollup-plugin-dts";
 import { terser } from "rollup-plugin-terser";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import tsConfigPaths from "rollup-plugin-tsconfig-paths";
 
 import { getFiles } from "./scripts/build-utils.js";
 
@@ -28,18 +31,18 @@ export default [
       },
     ],
     plugins: [
+      tsConfigPaths({ tsConfigPath: "./tsconfig.build.json" }),
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      terser(),
       typescript({
         typescript: ts,
+        declaration: false,
+        outDir: "./lib/esm/types",
         tsconfig: "./tsconfig.build.json",
-        declaration: true,
-        outDir: "lib/esm",
-        declarationDir: "lib/esm",
         exclude: ["node_modules", "lib"],
       }),
+      terser(),
       json(),
     ],
     external: externalPackages,
@@ -58,21 +61,34 @@ export default [
       },
     ],
     plugins: [
+      tsConfigPaths({ tsConfigPath: "./tsconfig.build.json" }),
       peerDepsExternal(),
       resolve(),
       commonjs(),
       terser(),
       typescript({
         typescript: ts,
+        declaration: false,
+        outDir: "./lib/cjs/types",
         tsconfig: "./tsconfig.build.json",
-        declaration: true,
-        outDir: "lib/cjs",
-        declarationDir: "lib/cjs",
         exclude: ["node_modules", "lib"],
       }),
       json(),
     ],
     external: externalPackages,
+  },
+
+  // .dts generation for TypeScript types
+  {
+    input: getFiles("./src/", [".ts"], []),
+    output: [
+      {
+        dir: "./lib/types/",
+        format: "esm",
+        preserveModules: false,
+      },
+    ],
+    plugins: [tsConfigPaths({ tsConfigPath: "./tsconfig.build.json" }), dts({ tsconfig: "./tsconfig.build.json" })],
   },
 
   // UMD build configuration for browsers
