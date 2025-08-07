@@ -4,19 +4,21 @@
   "outputDir": "./lib",
   "exports": {
     ".": {
+      "types": "./lib/types/src/index.d.ts",
       "import": "./lib/esm/index.js",
       "require": "./lib/cjs/index.js"
     },
     "./uzum-market": {
+      "types": "./lib/types/src/modules/uzum-market-api/index.d.ts",
       "import": "./lib/esm/modules/uzum-market-api/index.js",
       "require": "./lib/cjs/modules/uzum-market-api/index.js"
     },
     "./alif-shop": {
+      "types": "./lib/types/src/modules/alif-shop-api/index.d.ts",
       "import": "./lib/esm/modules/alif-shop-api/index.js",
       "require": "./lib/cjs/modules/alif-shop-api/index.js"
     }
   },
-  "types": "./lib/types/src/index.d.ts",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "files": [
