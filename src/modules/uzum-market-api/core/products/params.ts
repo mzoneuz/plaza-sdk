@@ -16,6 +16,10 @@ export interface SkuIdBasedParams extends TokenAndShopId {
   skuId: number;
 }
 
+export interface SkuBasedParams extends TokenAndShopId {
+  sku: string;
+}
+
 export type ProductListParams = TokenAndShopId &
   CorePaginationParams & {
     searchQuery?: string;

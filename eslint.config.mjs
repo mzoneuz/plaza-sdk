@@ -7,7 +7,7 @@ import parser from "@typescript-eslint/parser";
 export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
-    plugins: { js },
+    plugins: { js, import: pluginImport },
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     languageOptions: { globals: globals.es2022, parser },
   },

@@ -1,6 +1,3 @@
-import { IMultiLang } from "@/common/interfaces";
-import { CommissionDto, DefinedCharacteristic, Filter, Status } from "@/modules/uzum-market/common/interfaces";
-
 import { UzumMarketEntity } from "../types";
 
 export declare namespace IApi {
@@ -14,7 +11,7 @@ export declare namespace IApi {
 
   export namespace ProductsList {
     export interface Response {
-      productList: UzumMarketEntity.Product[];
+      productList: UzumMarketEntity.ProductItem[];
       totalProductsAmount: number;
     }
   }
@@ -34,20 +31,15 @@ export declare namespace IApi {
   }
 
   export namespace ProductDescription {
-    export interface Response {
-      id: number;
-      shopSkuTitle: string;
-      title: IMultiLang;
-      productSkuTitle: string;
-      commission: number;
-      commissionDto: CommissionDto;
-      hasCustomCharacteristics: boolean;
-      definedCharacteristicList: DefinedCharacteristic[];
-      customCharacteristicList: DefinedCharacteristic[];
-      skuList: UzumMarketEntity.FilledSkuItem[];
-      filters: Filter[];
-      newYearStatus: Status;
-      hasActiveCalendarEvents: boolean;
-    }
+    export type Response = UzumMarketEntity.ProductDescriptionInfo;
+  }
+
+  export namespace CreateProduct {
+    export type Request = UzumMarketEntity.CreatableProduct;
+    export type Response = UzumMarketEntity.ProductDescriptionInfo;
+  }
+
+  export namespace GetProduct {
+    export type Response = UzumMarketEntity.FullProductDetails;
   }
 }

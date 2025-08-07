@@ -5,11 +5,13 @@
   "exports": {
     "import": {
       "types": "./lib/esm/index.d.ts",
-      "default": "./lib/esm/index.js"
+      "default": "./lib/esm/index.js",
+      "uzum-market": "./lib/esm/modules/uzum-market-api/index.js"
     },
     "require": {
       "types": "./lib/cjs/index.d.ts",
-      "default": "./lib/cjs/index.js"
+      "default": "./lib/cjs/index.js",
+      "uzum-market": "./lib/cjs/modules/uzum-market-api/index.js"
     },
     "types": "./lib/esm/index.d.ts"
   },
@@ -49,6 +51,7 @@
     "@rollup/plugin-typescript": "^12.1.4",
     "@types/lodash": "^4.17.20",
     "eslint": "^9.32.0",
+    "eslint-plugin-import": "^2.32.0",
     "globals": "^16.3.0",
     "jiti": "^2.5.1",
     "prettier": "^3.6.2",
@@ -58,12 +61,12 @@
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.8.1",
     "typescript": "5.8.3",
-    "typescript-eslint": "^8.38.0"
+    "typescript-eslint": "^8.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "@typescript-eslint/parser": "^8.38.0"
   },
   "dependencies": {
-    "@typescript-eslint/parser": "^8.38.0",
     "axios": "^1.11.0",
-    "eslint-config-prettier": "^10.1.8",
     "lodash": "^4.17.21"
   }
 }

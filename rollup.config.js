@@ -12,7 +12,7 @@ const extensions = [".js", ".ts", ".jsx", ".tsx"];
 
 const inputFiles = ["./src/index.ts", ...getFiles("./src", extensions, [])];
 
-const externalPackages = ["lodash", "axios", "moment"];
+const externalPackages = ["lodash", "axios"];
 
 const packageName = "plazaSdk";
 

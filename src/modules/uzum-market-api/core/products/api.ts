@@ -1,4 +1,4 @@
-import { pasteAuthHeader } from "@/modules/uzum-market/common/utils";
+import { pasteAuthHeader } from "@/modules/uzum-market-api/common/utils";
 
 import * as Types from "./types";
 import * as Params from "./params";
@@ -41,6 +41,36 @@ export const InvolvedProductsList: CallerParam<Params.InvolvedProductsParams> = 
 
 export const ProductDescription: CallerParam<Params.ProductIdBasedParams, Types.IApi.ProductDescription.Response> = async (uzumHttp, params) => {
   return uzumHttp.get(`/seller/shop/${params.shopId}/product/${params.productId}/description-response`, {
+    headers: pasteAuthHeader(params.token),
+  });
+};
+
+export const CheckSkuExists: CallerParam<Params.SkuBasedParams, { exists: boolean }> = async (uzumHttp, params) => {
+  return uzumHttp.get(`/seller/shop/${params.shopId}/product/checkSku`, {
+    headers: pasteAuthHeader(params.token),
+    params: { sku: params.sku },
+  });
+};
+
+export const CreateProduct: CallerParamPayload<Params.TokenAndShopId, Types.IApi.CreateProduct.Request, Types.IApi.CreateProduct.Response> = async (
+  uzumHttp,
+  params,
+  payload,
+) => {
+  return uzumHttp.post(`/seller/shop/${params.shopId}/product/createProduct`, payload, {
+    headers: pasteAuthHeader(params.token),
+  });
+};
+
+export const GetProduct: CallerParam<Params.ProductIdBasedParams, Types.IApi.GetProduct.Response> = async (uzumHttp, params) => {
+  return uzumHttp.get(`/seller/shop/${params.shopId}/product`, {
+    params: { productId: params.productId },
+    headers: pasteAuthHeader(params.token),
+  });
+};
+
+export const SendSkuData: CallerParamPayload<Params.TokenAndShopId, unknown> = async (uzumHttp, params, payload) => {
+  return uzumHttp.post<string>(`/seller/shop/${params.shopId}/product/sendSkuData`, payload, {
     headers: pasteAuthHeader(params.token),
   });
 };

@@ -1,4 +1,4 @@
-import { NumberNullable } from "@/common/types";
+import { BooleanNullable, NumberNullable, StringNullable } from "@/common/types";
 import { IMultiLang } from "@/common/interfaces";
 
 import { ProductStatuses } from "./types";
@@ -42,7 +42,7 @@ export interface SkuCharacteristic {
   characteristicValue: IMultiLang;
 }
 
-export interface CommissionDto {
+export interface Commission {
   minCommission: number;
   maxCommission: number;
 }
@@ -51,14 +51,14 @@ export interface CharacteristicValue {
   title: IMultiLang;
   value: string;
   skuValue: string;
-  wantToPhotoStudio: boolean | null;
+  wantToPhotoStudio: BooleanNullable;
 }
 
 export interface DefinedCharacteristic {
   orderingNumber: number;
   characteristicValues: CharacteristicValue[];
   characteristicTitle: IMultiLang;
-  characteristicId: number | null;
+  characteristicId: NumberNullable;
   defined: boolean;
   requiredType?: string;
 }
@@ -68,17 +68,60 @@ export interface FilterValue {
   value: string;
   title: string;
   predefined: boolean;
-  isApproved: boolean | null;
+  isApproved: BooleanNullable;
 }
 
 export interface Filter {
   id: number;
   title: string;
-  description: string | null;
+  description: StringNullable;
   extendableValues: boolean;
   required: boolean;
   values: FilterValue[];
   emptyValue: FilterValue;
-  maxLength: number | null;
+  maxLength: NumberNullable;
   brandFilter: boolean;
+}
+
+export interface ColorImage {
+  colorImage: string;
+  imageUrl: string;
+  ordering: number;
+  deletable: boolean;
+  color: IMultiLang;
+  status: string;
+}
+
+export interface Comment {
+  comment: IMultiLang;
+  commentType: string;
+}
+
+export interface ProductFilterValue {
+  filterId: number;
+  filterValueId: number;
+}
+
+export interface ProductMedia {
+  deletable: boolean;
+  url: string;
+  key: string;
+  status: string;
+}
+
+export interface DimensionalGroup {
+  group: string;
+  title: string;
+}
+
+export interface Category {
+  id: number;
+  title: string;
+  productAmount: number;
+  parent: Category | null;
+}
+
+export interface RatingInfo {
+  rating: string;
+  feedbackQuantity: string;
 }

@@ -1,1 +1,1 @@
-export * from "./uzum-market";
+export * from "./uzum-market-api";
