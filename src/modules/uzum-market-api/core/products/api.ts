@@ -1,8 +1,8 @@
-import { pasteAuthHeader } from "@/modules/uzum-market-api/common/utils";
-
 import * as Types from "./types";
 import * as Params from "./params";
 import * as Mappers from "./mappers";
+
+import { pasteAuthHeader } from "@/common/utils";
 import { CallerParam, CallerParamPayload } from "@/common/types";
 
 export const ArchiveProduct: CallerParam<Params.SkuIdBasedParams, Types.IApi.ArchiveProduct.Response> = (uzumHttp, { token, shopId, skuId }) => {

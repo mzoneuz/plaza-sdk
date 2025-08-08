@@ -17,3 +17,12 @@ export type StringNullable = string | null;
 export type NumberNullable = number | null;
 
 export type BooleanNullable = boolean | null;
+
+export type NumberRange<From extends number, To extends number, Acc extends number[] = [], Result extends number[] = []> = Acc["length"] extends To
+  ? [...Result, To][number]
+  : Acc["length"] extends From
+    ? NumberRange<From, To, [...Acc, 1], [Acc["length"]]>
+    : Result extends []
+      ? NumberRange<From, To, [...Acc, 1], []>
+      : NumberRange<From, To, [...Acc, 1], [...Result, Acc["length"]]>;
+
