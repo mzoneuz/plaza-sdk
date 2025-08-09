@@ -23,8 +23,8 @@ export interface SkuBasedParams extends TokenAndShopId {
 export type ProductListParams = TokenAndShopId &
   CorePaginationParams & {
     searchQuery?: string;
-    filter: "ALL" & (string & {});
-    sortBy: "id" & (string & {});
+    filter: "ALL" | (string & {});
+    sortBy: "id" | (string & {});
     order: "ascending" | "descending";
   };
 
