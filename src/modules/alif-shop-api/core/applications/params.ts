@@ -8,6 +8,7 @@ export interface TokenParams {
 
 export interface ApplicationsParams extends TokenParams {
   page: number;
+  per_page?: number;
   q?: string;
   date?: string;
   is_delivery?: NumberRange<0, 1>;
