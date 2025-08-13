@@ -27,14 +27,20 @@ export declare namespace AuthEntity {
 }
 
 export declare namespace AuthApi {
+  export interface CommonResponse {
+    access_token: string;
+    token_type: "bearer";
+    refresh_token: string;
+    expires_in: number;
+    scope: string;
+  }
+
   export namespace GetToken {
-    export interface Response {
-      access_token: string;
-      token_type: "bearer";
-      refresh_token: string;
-      expires_in: number;
-      scope: string;
-    }
+    export type Response = CommonResponse;
+  }
+
+  export namespace RefreshToken {
+    export type Response = CommonResponse;
   }
 
   export namespace CheckToken {
