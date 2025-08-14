@@ -1,5 +1,6 @@
-export interface TokenAndShopId {
-  token: string;
+import { TokenParams } from "@/common";
+
+export interface TokenAndShopId extends TokenParams {
   shopId: number;
 }
 

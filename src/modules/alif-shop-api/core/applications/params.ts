@@ -1,10 +1,6 @@
-import { NumberRange } from "@/common";
+import { NumberRange, TokenParams } from "@/common";
 
 import * as Types from "./types";
-
-export interface TokenParams {
-  token: string;
-}
 
 export interface ApplicationsParams extends TokenParams {
   page: number;

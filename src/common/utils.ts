@@ -12,6 +12,6 @@ export const getNumber = (value: unknown, defaultValue: number = 0): number => {
 export const pasteAuthHeader = (token: string) => {
   return { Authorization: `Bearer ${token}` };
 };
-export const pasteAuthHeaderAndApikey = (token: string, apikey = "2qHIakuLe5") => {
-  return { Authorization: `Bearer ${token}`, apikey };
+export const pasteAuthHeaderAndApikey = (token: string, apikey = "2qHIakuLe5", apikeyFieldName = "apikey") => {
+  return { Authorization: `Bearer ${token}`, [apikeyFieldName]: apikey, locale: "ru" };
 };

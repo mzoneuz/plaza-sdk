@@ -13,6 +13,18 @@ export interface ILinks {
   next: string | null;
 }
 
+export interface IMetaLink {
+  url: string;
+  label: string;
+  active: boolean;
+}
+
+export interface IMetaWithPagination extends IMeta {
+  total: number;
+  last_page: number;
+  links: IMetaLink[];
+}
+
 export interface IPaginatedResponse<T> {
   data: T;
   meta: IMeta;
