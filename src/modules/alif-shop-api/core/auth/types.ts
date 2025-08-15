@@ -1,6 +1,6 @@
 import { UsernamePasswordParams } from "@/common";
 
-export declare namespace IAuth {
+export declare namespace AuthApi {
   export interface CommonResponse {
     access_token: string;
     expires_in: number;
