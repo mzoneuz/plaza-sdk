@@ -17,6 +17,11 @@
       "types": "./lib/types/src/modules/alif-shop-api/index.d.ts",
       "import": "./lib/esm/modules/alif-shop-api/index.js",
       "require": "./lib/cjs/modules/alif-shop-api/index.js"
+    },
+    "./alif-shop-client": {
+      "types": "./lib/types/src/modules/alif-shop-client-api/index.d.ts",
+      "import": "./lib/esm/modules/alif-shop-client-api/index.js",
+      "require": "./lib/cjs/modules/alif-shop-client-api/index.js"
     }
   },
   "main": "lib/cjs/index.js",
