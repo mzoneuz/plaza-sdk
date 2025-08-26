@@ -15,3 +15,7 @@ export interface ApplicationsParams extends TokenParams {
   search_param: "phone" | "fio" | "passport" | "pinfl" | "application_id" | (string & {});
   status_key: Types.ApplicationsEntity.Statuses | (string & {});
 }
+
+export interface ApplicationIdBasedParams extends TokenParams {
+  applicationId: string;
+}
