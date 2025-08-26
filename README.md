@@ -68,6 +68,11 @@ export { alifIdHttp };
 const baseURL = "https://api-merchant.alif.uz/merchant";
 const alifMerchantHttp = axios.create({ baseURL });
 export { alifMerchantHttp };
+
+// 3. alif shop client apilarni olish uchun (no-auth)
+const baseURL = "https://gw.alifshop.uz/web/client";
+const alifClientHttp = axios.create({ baseURL });
+export { alifClientHttp };
 ```
 
 Va ularni quyidagicha ishlatishimiz mumkin:

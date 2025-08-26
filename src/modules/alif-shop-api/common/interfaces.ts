@@ -19,9 +19,11 @@ export interface IMetaLink {
   active: boolean;
 }
 
-export interface IMetaWithPagination extends IMeta {
+export interface IMetaWithTotalLast extends IMeta {
   total: number;
   last_page: number;
+}
+export interface IMetaWithPagination extends IMetaWithTotalLast {
   links: IMetaLink[];
 }
 

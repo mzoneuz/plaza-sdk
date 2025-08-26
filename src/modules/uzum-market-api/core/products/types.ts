@@ -1,6 +1,6 @@
 import { UzumMarketEntity } from "../types";
 
-export declare namespace IApi {
+export declare namespace ProductsApi {
   export namespace ArchiveProduct {
     export type Response = UzumMarketEntity.SkuCore;
   }
