@@ -11,7 +11,7 @@ export const SingleApplication: CallerParam<Params.ApplicationIdBasedParams, Typ
   return http.get(`/application/applications/applications/${params.applicationId}`, { headers: pasteAuthHeaderAndApikey(params?.token) });
 };
 
-export const DeliverableWithType: CallerParam<Params.ApplicationIdBasedParams> = (http, params) => {
+export const DeliverableWithType: CallerParam<Params.ApplicationIdBasedParams, Types.ApplicationsApi.DeliverableList.Response> = (http, params) => {
   return http.get(`/delivery/deliveries/deliverable/${params.applicationId}/with-type`, {
     params: { deliverable_type: "application" },
     headers: pasteAuthHeaderAndApikey(params?.token),
