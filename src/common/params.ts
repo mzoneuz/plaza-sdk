@@ -1,5 +1,5 @@
 export interface TokenParams {
-  token: string;
+  token?: string;
 }
 
 export interface UsernamePasswordParams {
