@@ -3,7 +3,7 @@ import { CallerParam, CallerPayload, SlugParams } from "@/common";
 import * as Types from "./types";
 import * as Params from "./params";
 
-export const SearchOffersList: CallerPayload<Params.SearchOffersListParams, Types.AlifClientApi.SearchOffersListParams.Response> = (http, payload) => {
+export const SearchOffersList: CallerPayload<Params.SearchOffersListParams, Types.AlifClientApi.SearchOffersList.Response> = (http, payload) => {
   const { order = null, price_range = {}, brands = [], filters = {}, ...restPayload } = payload;
   return http.post("/search/full-text", { order, price_range, brands, filters, ...restPayload });
 };
