@@ -3,7 +3,7 @@ import { AttributeItem, TermItem } from "../../common/types";
 import { IMetaWithTotalLast } from "@/modules/alif-shop-api/common/interfaces";
 
 export declare namespace AlifClientApi {
-  export namespace SearchOffersListParams {
+  export namespace SearchOffersList {
     export interface Response {
       n_pages: number;
       n_items: number;
