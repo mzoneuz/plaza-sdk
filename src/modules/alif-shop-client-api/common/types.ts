@@ -7,7 +7,7 @@ export interface PartnerBySlug {
 
 export interface PartnerByName {
   id: number;
-  slug: string;
+  name: string;
 }
 export interface MediaItem {
   order: number;
