@@ -9,6 +9,6 @@ export interface SearchOffersListParams {
 }
 
 export interface CategoryOffersListParams {
-  page: number;
+  page?: number;
   category: string;
 }
