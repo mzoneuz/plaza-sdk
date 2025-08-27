@@ -1,10 +1,14 @@
 import { IMultiLang } from "@/common";
 
-export interface PartnerShop {
+export interface PartnerBySlug {
   id: number;
   slug: string;
 }
 
+export interface PartnerByName {
+  id: number;
+  slug: string;
+}
 export interface MediaItem {
   order: number;
   sm_path: string;

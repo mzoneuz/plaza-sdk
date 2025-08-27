@@ -1,5 +1,5 @@
 import { IMultiLang, NumberNullable, StringNullable } from "@/common";
-import { AlifBrand, MediaItem, ModereatedCardGroupItem, PartnerShop, TitleMedia } from "../common/types";
+import { AlifBrand, MediaItem, ModereatedCardGroupItem, PartnerByName, PartnerBySlug, TitleMedia } from "../common/types";
 
 export declare namespace AlifShopClientApiEntity {
   export interface CardThirdCategory extends CardCategory {
@@ -78,7 +78,7 @@ export declare namespace AlifShopClientApiEntity {
     event_v2_id?: null;
   }
 
-  export interface PartnerInfo extends PartnerShop {
+  export interface PartnerInfo extends PartnerBySlug {
     name: string;
     is_active: boolean;
     has_delivery: boolean;
@@ -209,7 +209,7 @@ export declare namespace AlifShopClientApiEntity {
       label_uz: string | null;
       quantity: number;
       condition: ConditionCore;
-      partner: PartnerShop;
+      partner: PartnerBySlug;
       product: {
         name: string;
         title_image: TitleMedia;
@@ -233,7 +233,7 @@ export declare namespace AlifShopClientApiEntity {
     has_video_links: boolean;
     label: unknown | null;
     discount: NumberNullable;
-    partner: PartnerShop;
+    partner: PartnerByName;
     condition: Omit<ConditionCore, "event_id">;
     bnpl_details: unknown | null;
     purchase_restrictions: unknown | null;

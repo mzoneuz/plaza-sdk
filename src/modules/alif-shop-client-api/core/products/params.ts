@@ -3,7 +3,7 @@ export interface SearchOffersListParams {
   page: number;
   price_range?: { min?: string; max?: string };
   brands?: never[];
-  order: string | null;
+  order?: string | null;
   query: string;
   filters?: Record<string, any[]>;
 }
