@@ -9,3 +9,7 @@ export interface GenerateReportParams {
 export interface CheckReportParams extends TokenParams {
   report_id: string;
 }
+
+export interface ReportsListParams extends TokenParams {
+  app: string;
+}
