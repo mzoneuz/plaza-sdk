@@ -18,6 +18,6 @@ export const CheckReport: CallerParam<Params.CheckReportParams, Types.AlifManage
   });
 };
 
-export const ReportsList: CallerParam<Params.ReportsListParams> = (http, params) => {
+export const ReportsList: CallerParam<Params.ReportsListParams, Types.AlifManagementApi.ReportsList.Response> = (http, params) => {
   return http.get("/excel/excel/v1/reports", { params, headers: pasteAuthHeaderAndApikey(params?.token) });
 };
