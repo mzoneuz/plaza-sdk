@@ -1,4 +1,4 @@
-import { CallerNoParam, CallerParam, CallerParamPayload, pasteAuthHeaderAndApikey } from "@/common";
+import { CallerParam, CallerParamPayload, pasteAuthHeaderAndApikey, TokenParams } from "@/common";
 
 import * as Types from "./types";
 import * as Params from "./params";
@@ -24,6 +24,6 @@ export const WarehouseList: CallerParam<Params.WarehouseProductsListParams, Type
   });
 };
 
-export const WarehouseCategoriesList: CallerNoParam<Types.ProductsApi.WarehouseCategoriesList.Response> = http => {
-  return http.get("/warehouse/app");
+export const WarehouseCategoriesList: CallerParam<TokenParams, Types.ProductsApi.WarehouseCategoriesList.Response> = (http, params) => {
+  return http.get("/warehouse/app", { headers: pasteAuthHeaderAndApikey(params.token) });
 };
