@@ -17,7 +17,7 @@ export const UpdateWarehouseProduct: CallerParamPayload<
   return http.put(`/warehouse/items/${params.productId}`, payload, { headers: pasteAuthHeaderAndApikey(params.token) });
 };
 
-export const WarehouseList: CallerParam<Params.WarehouseProductsListParams, Types.ProductsApi.WarehouseList.Response> = (http, { token, ...params }) => {
+export const WarehouseList: CallerParam<Params.WarehouseProductsListParams, Types.ProductsApi.WarehouseList.Response> = (http, { token = "", ...params }) => {
   return http.post("/warehouse/items", {
     params: { ...params, q: params.q || "" },
     headers: pasteAuthHeaderAndApikey(token),
