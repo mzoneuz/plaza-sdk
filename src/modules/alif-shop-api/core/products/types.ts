@@ -2,6 +2,14 @@ import { CardImage } from "@/modules/alif-shop-api/common/types";
 import { ILinks, IMetaWithPagination } from "@/modules/alif-shop-api/common/interfaces";
 
 export declare namespace ProductsEntity {
+  export interface MiniAlifshopOffer {
+    id: number;
+    item_id: number;
+    offer_id: number;
+    is_visible: boolean;
+    updated_at: string;
+  }
+
   export interface AlifshopOffer {
     id: number;
     product_id: number;
@@ -34,7 +42,7 @@ export declare namespace ProductsEntity {
     category_name: string;
     created_at: string;
     updated_at: string;
-    alifshop_offer: AlifshopOffer | null;
+    alifshop_offer: MiniAlifshopOffer | null;
     category: string;
     item_category: {
       id: number;
