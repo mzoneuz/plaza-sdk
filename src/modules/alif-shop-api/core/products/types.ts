@@ -42,6 +42,18 @@ export declare namespace ProductsEntity {
       is_markable: number;
     };
   }
+
+  export interface WarehouseRequestStatus {
+    status: string;
+    body_ru: string;
+    body_uz: string;
+  }
+
+  export interface WarehouseCategoryItem {
+    id: number;
+    name_ru: string;
+    name_uz: string;
+  }
 }
 
 export declare namespace ProductsApi {
@@ -71,6 +83,14 @@ export declare namespace ProductsApi {
       data: ProductsEntity.WarehouseProduct[];
       links: ILinks;
       meta: IMetaWithPagination;
+    }
+  }
+
+  export namespace WarehouseCategoriesList {
+    export interface Response {
+      can_export_items: boolean;
+      item_categories: ProductsEntity.WarehouseCategoryItem[];
+      moderation_request_statuses: ProductsEntity.WarehouseRequestStatus[];
     }
   }
 }
