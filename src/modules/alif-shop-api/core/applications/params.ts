@@ -17,5 +17,5 @@ export interface ApplicationsParams extends TokenParams {
 }
 
 export interface ApplicationIdBasedParams extends TokenParams {
-  applicationId: string;
+  applicationId: number;
 }
