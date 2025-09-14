@@ -34,6 +34,12 @@ export declare namespace AlifManagementEntity {
 
 export declare namespace AlifManagementApi {
   export namespace GenerateReport {
+    export interface Request {
+      type_id: number;
+      datetime_from: string;
+      datetime_to: string;
+    }
+    
     export type Response = AlifManagementEntity.GeneratedReport;
   }
 

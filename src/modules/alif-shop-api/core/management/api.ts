@@ -3,7 +3,7 @@ import { CallerParam, CallerParamPayload, pasteAuthHeaderAndApikey, TokenParams 
 import * as Types from "./types";
 import * as Params from "./params";
 
-export const GenerateReport: CallerParamPayload<TokenParams, Params.GenerateReportParams, Types.AlifManagementApi.GenerateReport.Response> = (
+export const GenerateReport: CallerParamPayload<TokenParams, Types.AlifManagementApi.GenerateReport.Request, Types.AlifManagementApi.GenerateReport.Response> = (
   http,
   params,
   payload,
