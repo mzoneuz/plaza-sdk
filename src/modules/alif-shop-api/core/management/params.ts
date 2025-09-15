@@ -1,6 +1,6 @@
 import { TokenParams } from "@/common";
 
-export interface CheckReportParams extends TokenParams {
+export interface ReportIdBasedParams extends TokenParams {
   report_id: string;
 }
 
