@@ -25,3 +25,8 @@ export type NumberRange<From extends number, To extends number, Acc extends numb
     : Result extends []
       ? NumberRange<From, To, [...Acc, 1], []>
       : NumberRange<From, To, [...Acc, 1], [...Result, Acc["length"]]>;
+
+// eslint-disable-next-line
+export type TailParameters<T> = T extends (x: any, ...rest: infer P) => any ? P : never;
+
+export type BoundFunction<F> = F extends (http: AxiosInstance, ...args: infer P) => infer R ? (...args: P) => R : never;
