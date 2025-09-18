@@ -15,6 +15,6 @@ export const ChangeDeliverUntilPrice: CallerParam<Params.OrderIdsBasedParams, Ty
   return http.get("/seller/fbs/v1/penalties/order/seller-change-deliver-until/price", { params, headers: pasteAuthHeader(params?.token) });
 };
 
-export const CancelOrderPrice: CallerParam<Params.OrderIdsBasedParams, Types.OrdersApi.CancelOrderPrice.Response> = (http, params) => {
+export const CancelOrderPrice: CallerParam<Params.OrderIdBasedParams, Types.OrdersApi.CancelOrderPrice.Response> = (http, params) => {
   return http.get("/seller/fbs/v1/penalties/order/seller-cancel/price", { params, headers: pasteAuthHeader(params?.token) });
 };
