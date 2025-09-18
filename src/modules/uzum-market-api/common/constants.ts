@@ -1,0 +1,13 @@
+export const uzumOrderStatuses = [
+  "CREATED",
+  "PACKING",
+  "PENDING_DELIVERY",
+  "DELIVERING",
+  "DELIVERED",
+  "ACCEPTED_AT_DP",
+  "DELIVERED_TO_CUSTOMER_DELIVERY_POINT",
+  "COMPLETED",
+  "CANCELED",
+  "PENDING_CANCELLATION",
+  "RETURNED",
+] as const;

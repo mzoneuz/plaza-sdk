@@ -17,6 +17,7 @@ import {
   StatusValue,
 } from "../common/interfaces";
 import { IMultiLang, IMultiLangArray } from "@/common/interfaces";
+import { OrderStatuses } from "@/modules/uzum-market-api/common/types";
 
 export declare namespace UzumMarketEntity {
   export interface SkuCore {
@@ -245,5 +246,93 @@ export declare namespace UzumMarketEntity {
     categoryEditable: boolean;
     keSeller: boolean;
     pstorage: boolean;
+  }
+
+  export interface OrderStock {
+    id: number;
+    externalId: string;
+    title: string;
+    address: string;
+    timeFrom: string;
+    timeTo: string;
+    poolSource: string;
+    dimensionalGroups: DimensionalGroup[];
+  }
+
+  export interface PenaltyParams {
+    freeCancellationHours: number;
+    penaltyPercent: number;
+    maxPenalty: number;
+    minPenalty: number;
+  }
+
+  export interface IdentifierInfo {
+    type: "IMEI";
+    required: boolean;
+    values: string[];
+  }
+
+  export interface BaseOrderItem {
+    id: number;
+    barcode: number;
+    skuTitle: string;
+    title: string;
+    price: number;
+    amount: number;
+    photo: {
+      photo: {
+        [key: string]: {
+          high: string;
+          low: string;
+        };
+      };
+      photoKey: string;
+      color: unknown | null;
+      hasVerticalPhoto: boolean;
+    };
+    identifierInfo: IdentifierInfo | null;
+  }
+
+  export interface BaseOrder {
+    id: number;
+    status: OrderStatuses;
+    dateCreated: number;
+    acceptUntil: number;
+    deliverUntil: number;
+    deliveringDate: NumberNullable;
+    deliveryDate: NumberNullable;
+    acceptedDate: NumberNullable;
+    deliveredToDeliveryPointDate: NumberNullable;
+    completedDate: NumberNullable;
+    dateCancelled: NumberNullable;
+    returnDate: NumberNullable;
+    cancelReason: StringNullable;
+    identifierRequired: boolean;
+    price: number;
+    shopId: number;
+    stock: OrderStock;
+    orderItems: BaseOrderItem[];
+    place: string;
+    invoiceNumber: number;
+    timeSlot: {
+      uuid: string;
+      timeFrom: number;
+      timeTo: number;
+    };
+    dropOffPoint: {
+      uuid: string;
+      address: string;
+      type: string;
+    };
+    scheme: "FBS" | "DBS";
+    deliveryInfo: unknown | null;
+    acceptanceProlongationsCount: number;
+    sellerAcceptanceProlongationsCount: number;
+    carrierCode: "DEFAULT" | (string & {});
+  }
+
+  export interface SingleOrder extends BaseOrder {
+    cancelPrice: number | null;
+    penaltyParameters: PenaltyParams | null;
   }
 }
