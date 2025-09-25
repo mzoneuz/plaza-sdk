@@ -1,6 +1,6 @@
 {
   "name": "plaza-sdk",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "outputDir": "./lib",
   "exports": {
     ".": {
