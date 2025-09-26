@@ -13,6 +13,11 @@
       "import": "./lib/esm/modules/uzum-market-api/index.js",
       "require": "./lib/cjs/modules/uzum-market-api/index.js"
     },
+    "./uzum-market-openapi": {
+      "types": "./lib/types/src/modules/uzum-market-openapi/index.d.ts",
+      "import": "./lib/esm/modules/uzum-market-openapi/index.js",
+      "require": "./lib/cjs/modules/uzum-market-openapi/index.js"
+    },
     "./alif-shop": {
       "types": "./lib/types/src/modules/alif-shop-api/index.d.ts",
       "import": "./lib/esm/modules/alif-shop-api/index.js",
