@@ -18,6 +18,10 @@ export const pasteAuthHeader = (token?: string) => {
   return { ...(token ? { Authorization: `Bearer ${token}` } : {}) };
 };
 
+export const pasteAuthHeaderWithoutAccessKey = (token?: string) => {
+  return { ...(token ? { Authorization: token } : {}) };
+};
+
 export const pasteAuthHeaderAndApikey = (token?: string, apikey = "2qHIakuLe5", apikeyFieldName = "apikey") => {
   return { ...(token ? { Authorization: `Bearer ${token}` } : {}), [apikeyFieldName]: apikey, locale: "ru" };
 };
