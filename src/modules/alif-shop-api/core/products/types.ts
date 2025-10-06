@@ -49,6 +49,10 @@ export declare namespace ProductsEntity {
       name: string;
       is_markable: number;
     };
+
+    // extra fields
+    shopId?: number;
+    shopName?: string;
   }
 
   export interface WarehouseRequestStatus {
