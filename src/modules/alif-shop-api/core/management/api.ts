@@ -22,10 +22,10 @@ export const ReportsList: CallerParam<Params.ReportsListParams, Types.AlifManage
   return http.get("/excel/excel/v1/reports", { params: { app: params.app }, headers: pasteAuthHeaderAndApikey(params?.token) });
 };
 
-export const DownloadReport: CallerParam<Params.ReportIdBasedParams, Blob> = (http, params) => {
+export const DownloadReport: CallerParam<Params.ReportIdBasedParams, ArrayBuffer> = (http, params) => {
   return http.get("/excel/excel/v1/reports/download", {
     params: { report_id: params.report_id },
-    responseType: "blob",
+    responseType: "arraybuffer",
     headers: pasteAuthHeaderAndApikey(params?.token),
   });
 };
