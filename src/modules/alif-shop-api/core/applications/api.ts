@@ -3,8 +3,13 @@ import { CallerParam, pasteAuthHeaderAndApikey } from "@/common";
 import * as Types from "./types";
 import * as Params from "./params";
 
+// common applications
 export const ApplicationsList: CallerParam<Params.ApplicationsParams, Types.ApplicationsApi.List.Response> = (http, { token, ...params }) => {
   return http.get("/application/applications/applications", { params, headers: pasteAuthHeaderAndApikey(token) });
+};
+
+export const ApplicationsListAllShops: CallerParam<Params.ApplicationsParams, Types.ApplicationsApi.List.Response> = (http, { token, ...params }) => {
+  return http.get("/application/manager/applications", { params, headers: pasteAuthHeaderAndApikey(token) });
 };
 
 export const SingleApplication: CallerParam<Params.ApplicationIdBasedParams, Types.ApplicationsApi.Single.Response> = (http, params) => {
