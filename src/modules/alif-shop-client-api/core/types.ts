@@ -1,5 +1,5 @@
 import { IMultiLang, NumberNullable, StringNullable } from "@/common";
-import { AlifBrand, MediaItem, ModereatedCardGroupItem, PartnerByName, PartnerBySlug, TitleMedia } from "../common/types";
+import { AlifBrand, MediaItem, ModereatedCardGroupItem, PartnerByName, PartnerBySlug, TitleMedia } from "../common/interfaces";
 
 export declare namespace AlifShopClientApiEntity {
   export interface CardThirdCategory extends CardCategory {

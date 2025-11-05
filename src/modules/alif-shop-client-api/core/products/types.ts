@@ -1,5 +1,5 @@
 import { AlifShopClientApiEntity } from "../types";
-import { AttributeItem, TermItem } from "../../common/types";
+import { AttributeItem, TermItem } from "../../common/interfaces";
 import { IMetaWithTotalLast } from "@/modules/alif-shop-api/common/interfaces";
 
 export declare namespace AlifClientApi {

@@ -8,6 +8,11 @@
       "import": "./lib/esm/index.js",
       "require": "./lib/cjs/index.js"
     },
+    "./yandex-market": {
+      "types": "./lib/types/src/modules/yandex-market-api/index.d.ts",
+      "import": "./lib/esm/modules/yandex-market-api/index.js",
+      "require": "./lib/cjs/modules/yandex-market-api/index.js"
+    },
     "./uzum-market": {
       "types": "./lib/types/src/modules/uzum-market-api/index.d.ts",
       "import": "./lib/esm/modules/uzum-market-api/index.js",

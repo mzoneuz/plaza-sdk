@@ -18,6 +18,10 @@ export const pasteAuthHeader = (token?: string) => {
   return { ...(token ? { Authorization: `Bearer ${token}` } : {}) };
 };
 
+export const pasteApiKeyHeader = (apiKey?: string, apiKeyFieldName = "Api-Key") => {
+  return { ...(apiKey ? { [apiKeyFieldName]: apiKey } : {}) };
+};
+
 export const pasteAuthHeaderWithoutAccessKey = (token?: string) => {
   return { ...(token ? { Authorization: token } : {}) };
 };
