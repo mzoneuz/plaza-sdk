@@ -19,6 +19,9 @@ export declare namespace YandexMarketEntity {
     business: Business;
     placementType: PlacementType;
     apiAvailability: "AVAILABLE" | "DISABLED_BY_INACTIVITY";
+
+    // for personal use
+    apiKey?: string;
   }
 
   export interface CampaignStock {
