@@ -1,7 +1,7 @@
 import * as Common from "@/modules/yandex-market-api/common";
 
 export interface CampaignOrderParams extends Common.CampaignIdBasedParams {
-  orderId: string;
+  orderId: number;
 }
 
 export interface CampaignOrdersParams extends Common.PagedParams, Common.TokenPagedParams, Common.CampaignIdBasedParams {
