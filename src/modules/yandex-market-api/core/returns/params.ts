@@ -6,5 +6,5 @@ export interface CampaignReturnsParams extends Common.TokenPagedParams, Common.C
   orderIds?: number[];
   shipmentStatuses?: Common.ReturnShipmentStatus[];
   statuses?: Common.ReturnStatus[];
-  type: Common.ReturnType;
+  type?: Common.ReturnType;
 }
