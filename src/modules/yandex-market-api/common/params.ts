@@ -1,5 +1,9 @@
 import { ApiKeyParams } from "@/common";
 
+export interface CampaignIdBasedParams extends ApiKeyParams {
+  campaignId: number;
+}
+
 export interface PagedParams extends ApiKeyParams {
   page?: number;
   pageSize?: number;

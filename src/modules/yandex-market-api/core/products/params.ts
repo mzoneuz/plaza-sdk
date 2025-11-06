@@ -1,11 +1,8 @@
-import { Language } from "@/modules/yandex-market-api/common/types";
-import { TokenPagedParams } from "@/modules/yandex-market-api/common/params";
+import * as Common from "@/modules/yandex-market-api/common";
 
-export interface CampaignStocksParams extends TokenPagedParams {
-  campaignId: number;
-}
+export type CampaignStocksParams = Common.TokenPagedParams & Common.CampaignIdBasedParams;
 
-export interface BusinessOfferMappingsParams extends TokenPagedParams {
+export interface BusinessOfferMappingsParams extends Common.TokenPagedParams {
   businessId: number;
-  language?: Language;
+  language?: Common.Language;
 }
