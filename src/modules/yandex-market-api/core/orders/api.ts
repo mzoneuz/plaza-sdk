@@ -7,6 +7,6 @@ export const CampaignOrder: CallerParam<Params.CampaignOrderParams, Types.Orders
   return http.get(`/v2/campaigns/${params.campaignId}/orders/${params.orderId}`, { headers: pasteApiKeyHeader(params.apiKey) });
 };
 
-export const CampaignOrders: CallerParam<Params.CampaignOrdersParams, Types.OrdersApi.CampaignOrders.Response> = (http, params) => {
-  return http.get(`/v2/campaigns/${params.campaignId}/orders`, { headers: pasteApiKeyHeader(params.apiKey) });
+export const CampaignOrders: CallerParam<Params.CampaignOrdersParams, Types.OrdersApi.CampaignOrders.Response> = (http, { campaignId, apiKey, ...params }) => {
+  return http.get(`/v2/campaigns/${campaignId}/orders`, { params, headers: pasteApiKeyHeader(apiKey) });
 };

@@ -1,5 +1,7 @@
 export type ResultStatus = "OK" | "ERROR";
 
+export type ReturnType = "UNREDEEMED" | "RETURN";
+
 export type PlacementType = "FBY" | "FBS" | "DBS" | "EXPRESS";
 
 export type Turnover = "LOW" | "ALMOST_LOW" | "HIGH" | "VERY_HIGH" | "NO_SALES" | "FREE_STORE";
@@ -8,15 +10,132 @@ export type CampaignStockType = "FIT" | "FREEZE" | "AVAILABLE" | "QUARANTINE" | 
 
 export type Language = "RU" | "UZ";
 
-  export type OrderBuyerType = "PERSON" | "BUSINESS";
+export type OrderBuyerType = "PERSON" | "BUSINESS";
 
 export type CurrencyType = "UZS" | "USD" | "RUB";
+
+export type ShipmentRecipientType = "SHOP" | "DELIVERY_SERVICE" | "POST";
 
 export type OrderDeliveryType = "DELIVERY" | "PICKUP" | "POST" | "DIGITAL" | "UNKNOWN";
 
 export type OrderDeliveryPartnerType = "SHOP" | "YANDEX_MARKET" | "UNKNOWN";
 
 export type OrderDeliveryDispatchType = "UNKNOWN" | "BUYER" | "MARKET_BRANDED_OUTLET" | "SHOP_OUTLET";
+
+export type LogisticPointType = "WAREHOUSE" | "PICKUP_POINT" | "PICKUP_TERMINAL" | "PICKUP_POST_OFFICE" | "PICKUP_MIXED" | "PICKUP_RETAIL";
+
+export type ReturnShipmentStatus =
+| "CREATED"
+  | "RECEIVED"
+  | "IN_TRANSIT"
+  | "READY_FOR_PICKUP"
+  | "PICKED"
+  | "LOST"
+  | "EXPIRED"
+  | "CANCELLED"
+  | "FULFILMENT_RECEIVED"
+  | "PREPARED_FOR_UTILIZATION"
+  | "NOT_IN_DEMAND"
+  | "UTILIZED"
+  | "READY_FOR_EXPROPRIATION"
+  | "RECEIVED_FOR_EXPROPRIATION"
+  | "UNKNOWN";
+
+export type ReturnStatus =
+  | "STARTED_BY_USER"
+  | "REFUND_IN_PROGRESS"
+  | "REFUNDED"
+  | "FAILED"
+  | "WAITING_FOR_DECISION"
+  | "DECISION_MADE"
+  | "REFUNDED_WITH_BONUSES"
+  | "REFUNDED_BY_SHOP"
+  | "CANCELLED"
+  | "REJECTED"
+  | "COMPLETE_WITHOUT_REFUND"
+  | "PREMODERATION_DISPUTE"
+  | "PREMODERATION_DECISION_WAITING"
+  | "PREMODERATION_DECISION_MADE"
+  | "PREMODERATION_SELECT_DELIVERY"
+  | "UNKNOWN";
+
+export type ReturnDecisionType =
+  | "FAST_REFUND_MONEY"
+  | "REFUND_MONEY"
+  | "REFUND_MONEY_INCLUDING_SHIPMENT"
+  | "REPAIR"
+  | "REPLACE"
+  | "SEND_TO_EXAMINATION"
+  | "DECLINE_REFUND"
+  | "OTHER_DECISION"
+  | "UNKNOWN";
+
+export type ReturnDecisionReasonType =
+  | "BAD_QUALITY"
+  | "DOES_NOT_FIT"
+  | "WRONG_ITEM"
+  | "DAMAGE_DELIVERY"
+  | "LOYALTY_FAIL"
+  | "CONTENT_FAIL"
+  | "DELIVERY_FAIL"
+  | "UNKNOWN";
+
+
+export type ReturnDecisionSubreasonType =
+  | "USER_DID_NOT_LIKE"
+  | "USER_CHANGED_MIND"
+  | "DELIVERED_TOO_LONG"
+  | "BAD_PACKAGE"
+  | "DAMAGED"
+  | "NOT_WORKING"
+  | "INCOMPLETENESS"
+  | "WRONG_ITEM"
+  | "WRONG_COLOR"
+  | "DID_NOT_MATCH_DESCRIPTION"
+  | "WRONG_ORDER"
+  | "WRONG_AMOUNT_DELIVERED"
+  | "WRAPPING_DAMAGED"
+  | "ITEM_WAS_USED"
+  | "BROKEN"
+  | "BAD_FLOWERS"
+  | "PARCEL_MISSING"
+  | "INCOMPLETE"
+  | "UNKNOWN";
+
+export type ReturnInstanceStatus =
+  | "CREATED"
+  | "RECEIVED"
+  | "IN_TRANSIT"
+  | "READY_FOR_PICKUP"
+  | "PICKED"
+  | "RECEIVED_ON_FULFILLMENT"
+  | "CANCELLED"
+  | "LOST"
+  | "UTILIZED"
+  | "PREPARED_FOR_UTILIZATION"
+  | "EXPROPRIATED"
+  | "NOT_IN_DEMAND";
+
+export type ReturnInstanceStockType =
+  | "FIT"
+  | "DEFECT"
+  | "ANOMALY"
+  | "SURPLUS"
+  | "EXPIRED"
+  | "MISGRADING"
+  | "UNDEFINED"
+  | "INCORRECT_IMEI"
+  | "INCORRECT_SERIAL_NUMBER"
+  | "INCORRECT_CIS"
+  | "PART_MISSING"
+  | "NON_COMPLIENT"
+  | "NOT_ACCEPTABLE"
+  | "SERVICE"
+  | "MARKDOWN"
+  | "DEMO"
+  | "REPAIR"
+  | "FIRMWARE"
+  | "UNKNOWN";
 
 export type VatValue =
   | "NO_VAT"

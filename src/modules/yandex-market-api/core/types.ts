@@ -50,6 +50,11 @@ export declare namespace YandexMarketEntity {
     uploadState: "UPLOADING" | "UPLOADED" | "FAILED";
   }
 
+  export interface OfferBasicPrice extends CommonTypes.CurrencyValueCore {
+    discountBase: number;
+    updatedAt: string;
+  }
+
   export interface BusinessOffer {
     offerId: string;
     name: string;
@@ -60,12 +65,7 @@ export declare namespace YandexMarketEntity {
     weightDimensions: CommonTypes.Dimensions;
     guaranteePeriod: CommonTypes.TimePeriod;
     commodityCodes: CommonTypes.CommodityCode[];
-    basicPrice: {
-      value: number;
-      currencyId: CommonTypes.CurrencyType;
-      discountBase: number;
-      updatedAt: string;
-    };
+    basicPrice: OfferBasicPrice;
     cardStatus: string;
     campaigns: CampaignMinimal[];
     sellingPrograms: Array<{ sellingProgram: CommonTypes.PlacementType; status: "FINE" | "REJECT" }>;
@@ -105,16 +105,19 @@ export declare namespace YandexMarketEntity {
     amount: number;
   }
 
-  export interface Address {
+  export interface AddressLogisticPickupPoint {
+    city: string;
+    country: string;
+    house: string;
+    postcode: string;
+    street: string;
+  }
+
+  export interface Address extends AddressLogisticPickupPoint {
     apartment: string;
     block: string;
-    postcode: string;
     building: string;
-    country: string;
-    city: string;
     district: string;
-    street: string;
-    house: string;
     entrance: string;
     entryphone: string;
     phone: string;
@@ -130,9 +133,12 @@ export declare namespace YandexMarketEntity {
     fulfilmentId: string;
   }
 
-  export interface ShipmentTrack {
-    deliveryServiceId: number;
+  export interface Track {
     trackCode: string;
+  }
+
+  export interface ShipmentTrack extends Track {
+    deliveryServiceId: number;
   }
 
   export interface Shipment {
@@ -193,8 +199,6 @@ export declare namespace YandexMarketEntity {
     vat: CommonTypes.VatValue;
   }
 
-
-
   export interface Buyer {
     type: CommonTypes.OrderBuyerType;
     id: string;
@@ -246,5 +250,58 @@ export declare namespace YandexMarketEntity {
     expiryDate: string;
     externalOrderId: string;
     notes: string;
+  }
+
+  export interface ReturnDecision {
+    amount: CommonTypes.CurrencyValueCore;
+    comment: string;
+    count: number;
+    decisionType: CommonTypes.ReturnDecisionType;
+    images: string[];
+    partnerCompensationAmount: CommonTypes.CurrencyValueCore;
+    reasonType: CommonTypes.ReturnDecisionReasonType;
+    returnItemId: number;
+    subreasonType: CommonTypes.ReturnDecisionSubreasonType;
+  }
+
+  export interface ReturnInstance {
+    cis: string;
+    imei: string;
+    status: CommonTypes.ReturnInstanceStatus;
+    stockType: CommonTypes.ReturnInstanceStockType;
+  }
+
+  export interface LogisticPickupPoint {
+    address: AddressLogisticPickupPoint;
+    id: number;
+    instruction: string;
+    logisticPartnerId: number;
+    name: string;
+    type: CommonTypes.LogisticPointType;
+  }
+
+  export interface ReturnItem {
+    count: number;
+    shopSku: string;
+    decisions: ReturnDecision[];
+    instances: ReturnInstance[];
+    marketSku: number;
+    tracks: Track[];
+  }
+
+  export interface Return {
+    id: number;
+    items: ReturnItem[];
+    orderId: number;
+    returnType: CommonTypes.ReturnType;
+    amount: CommonTypes.CurrencyValueCore;
+    creationDate: string;
+    fastReturn: boolean;
+    logisticPickupPoint: LogisticPickupPoint;
+    pickupTillDate: string;
+    refundStatus: CommonTypes.ReturnStatus;
+    shipmentRecipientType: CommonTypes.ShipmentRecipientType;
+    shipmentStatus: CommonTypes.ReturnShipmentStatus;
+    updateDate: string;
   }
 }

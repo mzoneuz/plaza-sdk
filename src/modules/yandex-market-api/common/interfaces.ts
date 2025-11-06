@@ -1,4 +1,4 @@
-import { ResultStatus } from "./types";
+import { CurrencyType, ResultStatus } from "./types";
 
 export interface Paging {
   prevPageToken?: string;
@@ -35,4 +35,9 @@ export interface Dimensions {
   width: number;
   height: number;
   weight: number;
+}
+
+export interface CurrencyValueCore {
+  value: number;
+  currencyId: CurrencyType;
 }
