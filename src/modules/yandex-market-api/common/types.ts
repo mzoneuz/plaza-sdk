@@ -2,7 +2,7 @@ export type ResultStatus = "OK" | "ERROR";
 
 export type ReturnType = "UNREDEEMED" | "RETURN";
 
-export type PlacementType = "FBY" | "FBS" | "DBS" | "EXPRESS";
+export type PlacementType = "FBY" | "FBS" | "DBS" | "EXPRESS" | "LAAS";
 
 export type Turnover = "LOW" | "ALMOST_LOW" | "HIGH" | "VERY_HIGH" | "NO_SALES" | "FREE_STORE";
 
@@ -25,7 +25,7 @@ export type OrderDeliveryDispatchType = "UNKNOWN" | "BUYER" | "MARKET_BRANDED_OU
 export type LogisticPointType = "WAREHOUSE" | "PICKUP_POINT" | "PICKUP_TERMINAL" | "PICKUP_POST_OFFICE" | "PICKUP_MIXED" | "PICKUP_RETAIL";
 
 export type ReturnShipmentStatus =
-| "CREATED"
+  | "CREATED"
   | "RECEIVED"
   | "IN_TRANSIT"
   | "READY_FOR_PICKUP"
@@ -79,7 +79,6 @@ export type ReturnDecisionReasonType =
   | "CONTENT_FAIL"
   | "DELIVERY_FAIL"
   | "UNKNOWN";
-
 
 export type ReturnDecisionSubreasonType =
   | "USER_DID_NOT_LIKE"
