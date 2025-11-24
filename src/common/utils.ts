@@ -2,6 +2,7 @@
 import type { AxiosInstance } from "axios";
 
 import { BoundFunction, TailParameters } from "./types";
+import { DateRange } from "./interfaces";
 
 export const getNumber = (value: unknown, defaultValue: number = 0): number => {
   if (typeof value === "number") {
@@ -43,3 +44,43 @@ export const wrapWithHttp =
 export function withHttp<H extends AxiosInstance, A extends any[], R>(fn: (http: H, ...args: A) => R, http: H) {
   return (...args: A) => fn(http, ...args);
 }
+
+
+/**
+ * Format a Date object as "YYYY-MM-DD".
+ * @param d - Date to format
+ * @returns A string in "YYYY-MM-DD" format
+ */
+export const formatDate = (d: Date): string => {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+
+  return `${y}-${m}-${day}`;
+};
+
+/**
+ * Kiritilgan `day` sanasidan boshlab,
+ *   - `dateTo` = o‘sha kun
+ *   - `dateFrom` = aniq 1 oy oldingi sana (kalendardagi 1 oy)
+ * ni "YYYY-MM-DD" formatida qaytaradi.
+ * @returns {DateRange}
+ */
+export const getOneMonthRange = (day: Date): DateRange => {
+  const dateTo = formatDate(day);
+
+  const year = day.getFullYear();
+  const month = day.getMonth();
+  const date = day.getDate();
+
+  const prevMonth = new Date(year, month - 1, 1);
+
+  const lastDayOfPrevMonth = new Date(prevMonth.getFullYear(), prevMonth.getMonth() + 1, 0).getDate();
+
+  const safeDay = Math.min(date, lastDayOfPrevMonth);
+  prevMonth.setDate(safeDay);
+
+  const dateFrom = formatDate(prevMonth);
+
+  return { dateFrom, dateTo };
+};

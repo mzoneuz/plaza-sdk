@@ -12,3 +12,8 @@ export interface AddressGps {
   latitude: number;
   longitude: number;
 }
+
+export interface DateRange {
+  dateTo: string;
+  dateFrom: string;
+}

@@ -20,4 +20,15 @@ export declare namespace ReportsApi {
       reportId: string;
     }>;
   }
+
+  export namespace GetSingleServiceReport {
+    export type Response = ResultResponse<{
+      generationRequestedAt: string;
+      status: "PENDING" | "RPOCESSING" | "DONE" | "FAILED";
+      estimatedGenerationTime: number;
+      file: string;
+      generationFinishedAt: string;
+      subStatus: "NO_DATA" | "TOO_LARGE" | "RESOURCE_NOT_FOUND";
+    }>;
+  }
 }
