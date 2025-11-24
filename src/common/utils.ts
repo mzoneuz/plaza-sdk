@@ -45,7 +45,6 @@ export function withHttp<H extends AxiosInstance, A extends any[], R>(fn: (http:
   return (...args: A) => fn(http, ...args);
 }
 
-
 /**
  * Format a Date object as "YYYY-MM-DD".
  * @param d - Date to format
@@ -66,7 +65,7 @@ export const formatDate = (d: Date): string => {
  * ni "YYYY-MM-DD" formatida qaytaradi.
  * @returns {DateRange}
  */
-export const getOneMonthRange = (day: Date): DateRange => {
+export const getOneMonthRange = (day: Date = new Date()): DateRange => {
   const dateTo = formatDate(day);
 
   const year = day.getFullYear();
