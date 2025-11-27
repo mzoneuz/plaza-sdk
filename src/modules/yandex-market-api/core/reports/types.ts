@@ -31,4 +31,17 @@ export declare namespace ReportsApi {
       subStatus: "NO_DATA" | "TOO_LARGE" | "RESOURCE_NOT_FOUND";
     }>;
   }
+  export namespace GenerateSalesReport {
+    export interface Request {
+      businessId: number;
+      dateFrom: string;
+      dateTo: string;
+      campaignIds?: number[];
+      promoId?: string;
+    }
+    export type Response = ResultResponse<{
+      reportId: string;
+      estimatedGenerationTime: number;
+    }>;
+  }
 }

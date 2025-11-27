@@ -19,3 +19,12 @@ export const GetSingleServiceReport: CallerParam<Params.GetSingleServiceReportPa
     headers: pasteApiKeyHeader(apiKey),
   });
 };
+
+
+export const GenerateSalesReport: CallerParamPayload<
+  Params.GenerateSalesReportParams,
+  Types.ReportsApi.GenerateSalesReport.Request,
+  Types.ReportsApi.GenerateSalesReport.Response
+> = (http, { apiKey, ...params }, payload) => {
+  return http.post("/v2/reports/united-orders/generate", payload, { params, headers: pasteApiKeyHeader(apiKey) });
+};
