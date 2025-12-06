@@ -21,7 +21,7 @@ export declare namespace InvoicesApi {
 
   export namespace GetSupplyRequestsItems {
     export interface Request {
-      requestId: InvoicesEntity.SupplyRequestId;
+      requestId: number;
     }
 
     export type Response = ResultResponse<{
