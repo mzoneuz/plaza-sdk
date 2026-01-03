@@ -24,7 +24,7 @@ export declare namespace ReportsApi {
   export namespace GetSingleServiceReport {
     export type Response = ResultResponse<{
       generationRequestedAt: string;
-      status: "PENDING" | "RPOCESSING" | "DONE" | "FAILED";
+      status: "PENDING" | "PROCESSING" | "DONE" | "FAILED";
       estimatedGenerationTime: number;
       file: string;
       generationFinishedAt: string;
