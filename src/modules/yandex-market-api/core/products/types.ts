@@ -63,8 +63,8 @@ export declare namespace ProductsApi {
 
   export namespace GetSelectedProductsPrices {
     export interface Request {
-      offerIds: string[];
-      archived: boolean;
+      offerIds?: string[] | null;
+      archived?: boolean;
     }
 
     export type Response = ResultResponse<{
