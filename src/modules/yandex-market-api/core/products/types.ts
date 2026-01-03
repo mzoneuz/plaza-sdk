@@ -1,12 +1,23 @@
-import { Paging, ResultResponse } from "@/modules/yandex-market-api/common/interfaces";
+import { OnlyStatusResponse, Paging, ResultResponse } from "@/modules/yandex-market-api/common";
 
 import { YandexMarketEntity } from "../types";
+import { CurrencyType } from "../../common";
 
 export declare namespace ProductsEntity {
   export interface BusinessOfferMapping {
     offer: YandexMarketEntity.BusinessOffer;
     mapping: YandexMarketEntity.BusinessMapping;
     showcaseUrls: YandexMarketEntity.MappingShowcaseUrl[];
+  }
+
+  export interface UpdatePriceModel {
+    offerId: string;
+    price: {
+      value?: number;
+      currencyId?: CurrencyType;
+      discountBase?: number;
+      minimumForBestseller?: number;
+    };
   }
 }
 
@@ -39,6 +50,26 @@ export declare namespace ProductsApi {
     export type Response = ResultResponse<{
       paging: Paging;
       offerMappings: ProductsEntity.BusinessOfferMapping[];
+    }>;
+  }
+
+  export namespace UpdateOfferPrices {
+    export interface Request {
+      offers: ProductsEntity.UpdatePriceModel[];
+    }
+
+    export type Response = OnlyStatusResponse;
+  }
+
+  export namespace GetSelectedProductsPrices {
+    export interface Request {
+      offerIds: string[];
+      archived: boolean;
+    }
+
+    export type Response = ResultResponse<{
+      paging: Paging;
+      offers: ProductsEntity.UpdatePriceModel[];
     }>;
   }
 }

@@ -19,6 +19,8 @@ export interface ResultResponse<T> {
   result: T;
 }
 
+export type OnlyStatusResponse = Omit<ResultResponse<unknown>, "result">;
+
 export interface CommodityCode {
   code: string;
   type: string;
