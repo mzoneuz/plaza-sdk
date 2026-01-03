@@ -30,7 +30,7 @@ export const UpdateOfferPrices: CallerParamPayload<
 };
 
 export const GetSelectedProductsPrices: CallerParamPayload<
-  Params.GetSelectedProductsPrices,
+  Params.GetSelectedProductsPricesParams,
   Types.ProductsApi.GetSelectedProductsPrices.Request,
   Types.ProductsApi.GetSelectedProductsPrices.Response
 > = (http, params, payload) => {

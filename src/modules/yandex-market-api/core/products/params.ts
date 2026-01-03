@@ -12,6 +12,6 @@ export interface UpdateOfferPricesParams extends ApiKeyParams {
   businessId: number;
 }
 
-export interface GetSelectedProductsPrices extends Common.TokenPagedParams {
+export interface GetSelectedProductsPricesParams extends Common.TokenPagedParams {
   businessId: number;
 }
