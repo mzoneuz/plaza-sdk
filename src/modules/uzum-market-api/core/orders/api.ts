@@ -4,6 +4,10 @@ import * as Types from "./types";
 import * as Params from "./params";
 
 export const OrdersList: CallerParam<Params.OrdersListParams, Types.OrdersApi.OrdersList.Response> = (http, params) => {
+  return http.get("/seller/fbs/orders", { params, headers: pasteAuthHeader(params?.token) });
+};
+
+export const OrdersListV2: CallerParam<Params.OrdersListV2Params, Types.OrdersApi.OrdersList.Response> = (http, params) => {
   return http.get("/seller/fbs/v2/orders", { params, headers: pasteAuthHeader(params?.token) });
 };
 

@@ -8,9 +8,11 @@ export interface OrderIdsBasedParams extends TokenParams {
   orderIds: string;
 }
 
-
-
 export interface OrdersListParams extends TokenParams {
+  status: OrderStatuses;
+}
+
+export interface OrdersListV2Params extends TokenParams {
   page?: number;
   size?: number;
   sortBy?: "CREATED_DATE";
