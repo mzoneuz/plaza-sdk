@@ -4,14 +4,15 @@ import * as Mappers from "./mappers";
 
 import { pasteAuthHeader } from "@/common/utils";
 import { CallerParam, CallerParamPayload } from "@/common/types";
+import { ProductIdBasedParams, SkuBasedParams, SkuIdBasedParams, TokenAndShopId } from "@/modules/uzum-market-api/common";
 
-export const ArchiveProduct: CallerParam<Params.SkuIdBasedParams, Types.ProductsApi.ArchiveProduct.Response> = (uzumHttp, { shopId, skuId, ...params }) => {
+export const ArchiveProduct: CallerParam<SkuIdBasedParams, Types.ProductsApi.ArchiveProduct.Response> = (uzumHttp, { shopId, skuId, ...params }) => {
   return uzumHttp.post(`/seller/shop/${shopId}/product/sku/${skuId}/archive`, null, {
     headers: pasteAuthHeader(params?.token),
   });
 };
 
-export const UnarchiveProduct: CallerParam<Params.SkuIdBasedParams, Types.ProductsApi.UnarchiveProduct.Response> = (uzumHttp, { shopId, skuId, ...params }) => {
+export const UnarchiveProduct: CallerParam<SkuIdBasedParams, Types.ProductsApi.UnarchiveProduct.Response> = (uzumHttp, { shopId, skuId, ...params }) => {
   return uzumHttp.post(`/seller/shop/${shopId}/product/sku/${skuId}/archive/restore`, null, {
     headers: pasteAuthHeader(params?.token),
   });
@@ -24,11 +25,11 @@ export const ProductsList: CallerParam<Params.ProductListParams, Types.ProductsA
   });
 };
 
-export const RemovePromotion: CallerParamPayload<Params.TokenAndShopId, Types.ProductsApi.RemovePromotion.Request> = (uzumHttp, params, payload) => {
+export const RemovePromotion: CallerParamPayload<TokenAndShopId, Types.ProductsApi.RemovePromotion.Request> = (uzumHttp, params, payload) => {
   return uzumHttp.post(`/seller/shop/${params.shopId}/marketing/calendar-event/remove`, payload, { headers: pasteAuthHeader(params?.token) });
 };
 
-export const AddPromotion: CallerParamPayload<Params.TokenAndShopId, Types.ProductsApi.AddPromotion.Request> = (uzumHttp, params, payload) => {
+export const AddPromotion: CallerParamPayload<TokenAndShopId, Types.ProductsApi.AddPromotion.Request> = (uzumHttp, params, payload) => {
   return uzumHttp.post(`/seller/shop/${params.shopId}/marketing/calendar-event/add`, payload, { headers: pasteAuthHeader(params?.token) });
 };
 
@@ -39,13 +40,13 @@ export const InvolvedProductsList: CallerParam<Params.InvolvedProductsParams> = 
   });
 };
 
-export const ProductDescription: CallerParam<Params.ProductIdBasedParams, Types.ProductsApi.ProductDescription.Response> = async (uzumHttp, params) => {
+export const ProductDescription: CallerParam<ProductIdBasedParams, Types.ProductsApi.ProductDescription.Response> = async (uzumHttp, params) => {
   return uzumHttp.get(`/seller/shop/${params.shopId}/product/${params.productId}/description-response`, {
     headers: pasteAuthHeader(params?.token),
   });
 };
 
-export const CheckSkuExists: CallerParam<Params.SkuBasedParams, { exists: boolean }> = async (uzumHttp, params) => {
+export const CheckSkuExists: CallerParam<SkuBasedParams, { exists: boolean }> = async (uzumHttp, params) => {
   return uzumHttp.get(`/seller/shop/${params.shopId}/product/checkSku`, {
     headers: pasteAuthHeader(params?.token),
     params: { sku: params.sku },
@@ -53,7 +54,7 @@ export const CheckSkuExists: CallerParam<Params.SkuBasedParams, { exists: boolea
 };
 
 export const CreateProduct: CallerParamPayload<
-  Params.TokenAndShopId,
+  TokenAndShopId,
   Types.ProductsApi.CreateProduct.Request,
   Types.ProductsApi.CreateProduct.Response
 > = async (uzumHttp, params, payload) => {
@@ -62,14 +63,14 @@ export const CreateProduct: CallerParamPayload<
   });
 };
 
-export const GetProduct: CallerParam<Params.ProductIdBasedParams, Types.ProductsApi.GetProduct.Response> = async (uzumHttp, params) => {
+export const GetProduct: CallerParam<ProductIdBasedParams, Types.ProductsApi.GetProduct.Response> = async (uzumHttp, params) => {
   return uzumHttp.get(`/seller/shop/${params.shopId}/product`, {
     params: { productId: params.productId },
     headers: pasteAuthHeader(params?.token),
   });
 };
 
-export const SendSkuData: CallerParamPayload<Params.TokenAndShopId, unknown> = async (uzumHttp, params, payload) => {
+export const SendSkuData: CallerParamPayload<TokenAndShopId, unknown> = async (uzumHttp, params, payload) => {
   return uzumHttp.post<string>(`/seller/shop/${params.shopId}/product/sendSkuData`, payload, {
     headers: pasteAuthHeader(params?.token),
   });

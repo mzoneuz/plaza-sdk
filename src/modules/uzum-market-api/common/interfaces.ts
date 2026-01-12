@@ -1,7 +1,28 @@
-import { BooleanNullable, NumberNullable, StringNullable } from "@/common/types";
+import { TokenParams } from "@/common";
 import { IMultiLang } from "@/common/interfaces";
+import { BooleanNullable, NumberNullable, StringNullable } from "@/common/types";
 
 import { ProductStatuses } from "./types";
+export interface TokenAndShopId extends TokenParams {
+  shopId: number;
+}
+
+export interface ProductIdBasedParams extends TokenAndShopId {
+  productId: number;
+}
+
+export interface CorePaginationParams {
+  page: number;
+  size: number;
+}
+
+export interface SkuIdBasedParams extends TokenAndShopId {
+  skuId: number;
+}
+
+export interface SkuBasedParams extends TokenAndShopId {
+  sku: string;
+}
 
 export interface StatusValue {
   value: string;
