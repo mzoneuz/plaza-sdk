@@ -2,7 +2,7 @@ import { TokenParams } from "@/common";
 import { IMultiLang } from "@/common/interfaces";
 import { BooleanNullable, NumberNullable, StringNullable } from "@/common/types";
 
-import { ProductStatuses } from "./types";
+import { ProductStatuses, ReturnStatuses } from "./types";
 export interface TokenAndShopId extends TokenParams {
   shopId: number;
 }
@@ -145,4 +145,10 @@ export interface Category {
 export interface RatingInfo {
   rating: string;
   feedbackQuantity: string;
+}
+
+export interface PaidStorage {
+  startDate: number;
+  endDate: number;
+  status: ReturnStatuses;
 }
