@@ -18,6 +18,8 @@ export declare namespace ReturnsEntity {
     type: ReturnTypes;
     ettnInfo: unknown;
     returnDropInfo: unknown;
+    // custom fields
+    shopId?: number;
   }
 
   interface ReturnOrderInfo {
