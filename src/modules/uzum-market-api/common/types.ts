@@ -7,3 +7,5 @@ export type OrderStatuses = (typeof uzumOrderStatuses)[number] | (string & {});
 export type ReturnTypes = "FBS" | "DEFECTED" | "RETURN";
 
 export type ReturnStatuses = "CREATED" | "SENT" | "IN_PROGRESS" | "MOVED_TO_DELIVERY" | "ASSEMBLED" | "COMPLETED" | "UTILIZED" | "CANCELED";
+
+export type PaidStorageStatus = "ACTIVE" | "PENDING" | "EXPIRED" | "COMPLETED";
