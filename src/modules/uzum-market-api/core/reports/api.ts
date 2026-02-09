@@ -13,7 +13,7 @@ export const CreateDocument: CallerParamPayload<TokenParams, Types.ReportsApi.Cr
   });
 };
 
-export const GetDocuments: CallerParam<Params.GetDocumentsParams> = (http, { token, ...params }) => {
+export const GetDocuments: CallerParam<Params.GetDocumentsParams, Types.ReportsApi.GetDocuments.Response> = (http, { token, ...params }) => {
   if (!params.jobFilter) params.jobFilter = "SELLS_REPORT,EXPENSES_REPORT,LEFT_OUT_REPORT,MARKED_SALES_REPORT,PAID_STORAGE_REPORT";
   return http.get("/seller/documents/requests", { params, headers: pasteAuthHeader(token) });
 };
