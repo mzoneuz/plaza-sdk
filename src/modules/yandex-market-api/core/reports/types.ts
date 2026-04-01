@@ -44,4 +44,16 @@ export declare namespace ReportsApi {
       estimatedGenerationTime: number;
     }>;
   }
+  export namespace GenerateImplementationReport {
+    export interface Request {
+      campaignId: number;
+      month: number;
+      year: number;
+    }
+    interface Result {
+      reportId: string;
+      estimatedGenerationTime: number;
+    }
+    export type Response = ResultResponse<Result>;
+  }
 }
