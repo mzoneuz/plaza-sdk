@@ -1,5 +1,5 @@
 {
-  "name": "@mzoneuz/plaza-sdk",
+  "name": "plaza-sdk",
   "version": "2.14.1",
   "outputDir": "./lib",
   "exports": {
