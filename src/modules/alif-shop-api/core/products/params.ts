@@ -13,3 +13,12 @@ export interface WarehouseProductsListParams extends TokenParams {
   is_visible?: NumberRange<0, 1>;
   q?: string;
 }
+
+export interface WarehouseOfferDemandsList extends TokenParams {
+  page: number;
+  per_page: number;
+  category_id?: number;
+  status?: string;
+  in_stock?: string;
+  search?: string;
+}

@@ -1,5 +1,5 @@
 import { CardImage } from "@/modules/alif-shop-api/common/types";
-import { ILinks, IMetaWithPagination } from "@/modules/alif-shop-api/common/interfaces";
+import { ILinks, IMetaWithPagination, IMetaWithTotalLast } from "@/modules/alif-shop-api/common/interfaces";
 
 export declare namespace ProductsEntity {
   export interface MiniAlifshopOffer {
@@ -55,6 +55,20 @@ export declare namespace ProductsEntity {
     shopName?: string;
   }
 
+  export interface WarehouseOfferDemandProduct {
+    id: string;
+    offer_id: string;
+    title: string;
+    ikpu: string;
+    sku: string;
+    status: string;
+    is_visible: false;
+    price: number;
+    original_price: number;
+    quantity: number;
+    created_at: string;
+  }
+
   export interface WarehouseRequestStatus {
     status: string;
     body_ru: string;
@@ -95,6 +109,13 @@ export declare namespace ProductsApi {
       data: ProductsEntity.WarehouseProduct[];
       links: ILinks;
       meta: IMetaWithPagination;
+    }
+  }
+
+  export namespace WarehouseOfferDemandsList {
+    export interface Response {
+      data: ProductsEntity.WarehouseOfferDemandProduct[];
+      meta: IMetaWithTotalLast;
     }
   }
 

@@ -24,6 +24,16 @@ export const WarehouseList: CallerParam<Params.WarehouseProductsListParams, Type
   });
 };
 
+export const WarehouseOfferDemandsList: CallerParam<Params.WarehouseOfferDemandsList, Types.ProductsApi.WarehouseList.Response> = (
+  http,
+  { token = "", ...params },
+) => {
+  return http.get("/shop-dotnet/offer-demands", {
+    params: { ...params, q: params.search || "", in_stock: params.in_stock || "" },
+    headers: pasteAuthHeaderAndApikey(token),
+  });
+};
+
 export const WarehouseCategoriesList: CallerParam<TokenParams, Types.ProductsApi.WarehouseCategoriesList.Response> = (http, params) => {
   return http.get("/warehouse/app", { headers: pasteAuthHeaderAndApikey(params.token) });
 };
