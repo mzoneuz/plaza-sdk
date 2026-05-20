@@ -22,3 +22,13 @@ export interface OrdersListV2Params extends TokenParams {
   shopIds?: string;
   places?: "STOCK" | "DROP_OFF" | (string & {});
 }
+
+export interface OrdersCountsParams extends TokenParams {
+  size?: number;
+  statuses?: OrderStatuses;
+  scheme?: "FBS" | "DBS";
+  sortBy?: "CREATED_DATE";
+  sortOrder?: "DESC" | "ASC";
+  shopIds?: string;
+  places?: "STOCK" | "DROP_OFF" | (string & {});
+}

@@ -11,6 +11,10 @@ export const OrdersListV2: CallerParam<Params.OrdersListV2Params, Types.OrdersAp
   return http.get("/seller/fbs/v2/orders", { params, headers: pasteAuthHeader(params?.token) });
 };
 
+export const OrdersCounts: CallerParam<Params.OrdersCountsParams, Types.OrdersApi.OrdersCounts.Response> = (http, params) => {
+  return http.get("/seller/fbs/orders/count", { headers: pasteAuthHeader(params?.token) });
+};
+
 export const SingleOrder: CallerParam<Params.OrderIdBasedParams, Types.OrdersApi.SingleOrder.Response> = (http, params) => {
   return http.get(`/seller/fbs/order/${params.orderId}`, { headers: pasteAuthHeader(params?.token) });
 };

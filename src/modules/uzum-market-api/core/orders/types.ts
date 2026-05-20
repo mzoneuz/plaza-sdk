@@ -1,3 +1,4 @@
+import { OrderStatuses } from "@/modules/uzum-market-api/common";
 import { UzumMarketEntity } from "@/modules/uzum-market-api/core/types";
 
 export declare namespace OrdersEntity {
@@ -5,6 +6,11 @@ export declare namespace OrdersEntity {
     orderId: number;
     newDeliverUntil: number;
     price: number;
+  }
+
+  export interface OrderCounter {
+    counter: number;
+    status: OrderStatuses;
   }
 }
 
@@ -15,6 +21,14 @@ export declare namespace OrdersApi {
         orders: UzumMarketEntity.BaseOrder[];
       };
       timestamp: string;
+    }
+  }
+
+  export namespace OrdersCounts {
+    export interface Response {
+      payload: {
+        ordersCount: OrdersEntity.OrderCounter[];
+      };
     }
   }
 
