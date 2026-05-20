@@ -24,7 +24,7 @@ export const WarehouseList: CallerParam<Params.WarehouseProductsListParams, Type
   });
 };
 
-export const WarehouseOfferDemandsList: CallerParam<Params.WarehouseOfferDemandsList, Types.ProductsApi.WarehouseList.Response> = (
+export const WarehouseOfferDemandsList: CallerParam<Params.WarehouseOfferDemandsListParams, Types.ProductsApi.WarehouseList.Response> = (
   http,
   { token = "", ...params },
 ) => {

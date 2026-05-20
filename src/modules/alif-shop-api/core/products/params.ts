@@ -14,7 +14,7 @@ export interface WarehouseProductsListParams extends TokenParams {
   q?: string;
 }
 
-export interface WarehouseOfferDemandsList extends TokenParams {
+export interface WarehouseOfferDemandsListParams extends TokenParams {
   page: number;
   per_page: number;
   category_id?: number;
