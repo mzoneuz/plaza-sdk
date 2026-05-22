@@ -17,3 +17,8 @@ export interface GenerateSalesReportParams extends ApiKeyParams {
 export interface GenerateImplementationReportParams extends ApiKeyParams {
   format: "FILE" | "CSV" | "JSON";
 }
+
+export interface GenerateUnitedNettingReportParams extends ApiKeyParams {
+  format?: "FILE" | "CSV" | "JSON";
+  language?: "RU" | "EN";
+}
