@@ -56,4 +56,28 @@ export declare namespace ReportsApi {
     }
     export type Response = ResultResponse<Result>;
   }
+
+  export namespace GenerateUnitedNettingReport {
+    export interface Request {
+      businessId: number;
+      dateFrom?: string;
+      dateTo?: string;
+      dateTimeFrom?: string;
+      dateTimeTo?: string;
+      bankOrderId?: number;
+      bankOrderDateTime?: string;
+      monthOfYear?: {
+        year: number;
+        month: number;
+      };
+      placementPrograms?: PlacementType[];
+      inns?: string[];
+      campaignIds?: number[];
+    }
+
+    export type Response = ResultResponse<{
+      reportId: string;
+      estimatedGenerationTime: number;
+    }>;
+  }
 }

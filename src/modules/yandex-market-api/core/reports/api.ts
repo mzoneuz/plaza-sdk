@@ -36,3 +36,13 @@ export const GenerateImplementationReport: CallerParamPayload<
 > = (http, { apiKey, ...params }, payload) => {
   return http.post("/v2/reports/goods-realization/generate", payload, { params, headers: pasteApiKeyHeader(apiKey) });
 };
+
+// United Netting Report
+export const GenerateUnitedNettingReport: CallerParamPayload<
+  Params.GenerateUnitedNettingReportParams,
+  Types.ReportsApi.GenerateUnitedNettingReport.Request,
+  Types.ReportsApi.GenerateUnitedNettingReport.Response
+> = (http, { apiKey, ...params }, payload) => {
+  return http.post("/v2/reports/united-netting/generate", payload, { params, headers: pasteApiKeyHeader(apiKey) });
+};
+
