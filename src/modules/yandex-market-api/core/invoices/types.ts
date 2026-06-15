@@ -69,7 +69,7 @@ export declare namespace InvoicesEntity {
     shortageCount: number;
     surplusCount: number;
   }
-  
+
   export interface Counters extends CountersBase {
     acceptableCount: number;
     actualBoxCount: number;

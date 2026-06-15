@@ -53,11 +53,11 @@ export const CheckSkuExists: CallerParam<SkuBasedParams, { exists: boolean }> = 
   });
 };
 
-export const CreateProduct: CallerParamPayload<
-  TokenAndShopId,
-  Types.ProductsApi.CreateProduct.Request,
-  Types.ProductsApi.CreateProduct.Response
-> = async (uzumHttp, params, payload) => {
+export const CreateProduct: CallerParamPayload<TokenAndShopId, Types.ProductsApi.CreateProduct.Request, Types.ProductsApi.CreateProduct.Response> = async (
+  uzumHttp,
+  params,
+  payload,
+) => {
   return uzumHttp.post(`/seller/shop/${params.shopId}/product/createProduct`, payload, {
     headers: pasteAuthHeader(params?.token),
   });

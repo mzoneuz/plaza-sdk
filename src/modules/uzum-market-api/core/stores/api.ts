@@ -8,4 +8,4 @@ export const GetMarketingSellers: CallerParam<TokenParams, Types.StoresApi.GetMa
 
 export const GetShopsList: CallerParam<TokenParams, Types.StoresApi.GetShopsList.Response> = (http, params) => {
   return http.get("/seller/shop/", { headers: pasteAuthHeader(params?.token) });
-}
+};

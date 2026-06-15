@@ -39,7 +39,7 @@ export declare namespace AlifManagementApi {
       datetime_from: string;
       datetime_to: string;
     }
-    
+
     export type Response = AlifManagementEntity.GeneratedReport;
   }
 

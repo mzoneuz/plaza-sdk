@@ -194,30 +194,30 @@ export declare namespace AlifShopClientApiEntity {
     variations: null;
   }
 
-    export interface AlifProduct {
-      id: number;
-      slug: string;
-      product_id: number;
-      moderated_offer_id?: number;
-      brand_id: number;
-      brand_name: string;
-      brand_image: string;
-      price: number;
-      old_price: number;
-      discount: number | null;
-      label_ru: string | null;
-      label_uz: string | null;
-      quantity: number;
-      condition: ConditionCore;
-      partner: PartnerBySlug;
-      product: {
-        name: string;
-        title_image: TitleMedia;
-        images: MediaItem[];
-      };
-      has_imei: boolean;
-      has_guarantee: boolean;
-    }
+  export interface AlifProduct {
+    id: number;
+    slug: string;
+    product_id: number;
+    moderated_offer_id?: number;
+    brand_id: number;
+    brand_name: string;
+    brand_image: string;
+    price: number;
+    old_price: number;
+    discount: number | null;
+    label_ru: string | null;
+    label_uz: string | null;
+    quantity: number;
+    condition: ConditionCore;
+    partner: PartnerBySlug;
+    product: {
+      name: string;
+      title_image: TitleMedia;
+      images: MediaItem[];
+    };
+    has_imei: boolean;
+    has_guarantee: boolean;
+  }
 
   export interface CategoryOfferItem {
     offer_id: number;

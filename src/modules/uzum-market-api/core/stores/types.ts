@@ -6,7 +6,6 @@ export declare namespace StoresEntity {
     title: string;
   }
 
-
   export interface Shop {
     id: number;
     shopTitle: string;
@@ -18,7 +17,7 @@ export declare namespace StoresEntity {
     transferred: boolean;
     chatAvatarUrl: string | null;
   }
-  
+
   export interface Seller {
     sellerName: string;
     sellerId: number;

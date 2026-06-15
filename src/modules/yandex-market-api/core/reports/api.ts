@@ -45,4 +45,3 @@ export const GenerateUnitedNettingReport: CallerParamPayload<
 > = (http, { apiKey, ...params }, payload) => {
   return http.post("/v2/reports/united-netting/generate", payload, { params, headers: pasteApiKeyHeader(apiKey) });
 };
-
