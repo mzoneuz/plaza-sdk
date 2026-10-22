@@ -46,7 +46,8 @@
     "start": "node dist/bundle.js",
     "typecheck": "tsc --noEmit true",
     "lint": "eslint . --quiet --max-warnings 0",
-    "prettify": "prettier --write \"{src,tools,public}/**/*.{json,ts,tsx,js,jsx,md,scss,css,html}\""
+    "prettify": "prettier --write \"{src,tools,public}/**/*.{json,ts,tsx,js,jsx,md,scss,css,html}\"",
+    "release": "semantic-release"
   },
   "publishConfig": {
     "access": "public"
@@ -57,6 +58,14 @@
     "yarn": ">= 1",
     "node": ">=20"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mzoneuz/plaza-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mzoneuz/plaza-sdk/issues"
+  },
+  "homepage": "https://github.com/mzoneuz/plaza-sdk#readme",
   "author": {
     "name": "Suhrobbek Soatov",
     "url": "https://soatov.uz",
@@ -64,6 +73,8 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.32.0",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.6",
@@ -71,6 +82,8 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.4",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@types/lodash": "^4.17.20",
     "@typescript-eslint/parser": "^8.38.0",
     "eslint": "^9.32.0",
@@ -84,6 +97,7 @@
     "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-tsconfig-paths": "^1.5.2",
+    "semantic-release": "^25.0.5",
     "tslib": "^2.8.1",
     "typescript": "5.8.3",
     "typescript-eslint": "^8.38.0"
