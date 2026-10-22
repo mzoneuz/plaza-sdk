@@ -11,6 +11,10 @@ on:
 permissions:
   contents: read
 
+env:
+  # Rollup (esm + cjs + d.ts + browser) standart ~4 GB heap'ga sig'maydi; runner'da 16 GB bor
+  NODE_OPTIONS: "--max-old-space-size=8192"
+
 jobs:
   ci_check:
     runs-on: ubuntu-latest
