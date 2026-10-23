@@ -1,4 +1,28 @@
+export type SellerExpenseSourceType = "UZUM_MARKET" | "LOGISTICS" | "STORAGE" | "MARKETING" | (string & {});
+
 export declare namespace FinancesTypes {
+  /** `/v1/seller/finance/expenses` yozuvi */
+  export interface SellerExpense {
+    id: number;
+    externalId: string;
+    /** Masalan FBS002 (jarima), logistics-volume, С000004 */
+    code: string;
+    type: "PAYMENT" | "REFUND" | (string & {});
+    status: string;
+    /** Masalan "Штраф за продление заказа [132024580]" — qavsdagi raqam zakaz id */
+    serviceName: string;
+    source: string;
+    sourceType: SellerExpenseSourceType;
+    /** ISO sana */
+    paidAt: string;
+    /** ISO sana */
+    serviceAt: string;
+    /** Summa (so'm) */
+    amount: number;
+    quantity: number;
+    shopId: number;
+  }
+
   export interface Expense {
     id: number;
     dateCreated: number;
@@ -18,6 +42,15 @@ export declare namespace FinancesTypes {
 }
 
 export declare namespace FinancesApi {
+  export namespace SellerExpensesList {
+    export interface Response {
+      items: FinancesTypes.SellerExpense[];
+      /** Filtr bo'yicha jami yozuvlar soni */
+      total: number;
+      dailyTotals: unknown[];
+    }
+  }
+
   export namespace ExpensesList {
     export interface Response {
       payload: {
