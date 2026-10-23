@@ -2,6 +2,13 @@
 
 Barcha muhim o'zgarishlar shu faylda hujjatlashtiriladi. Format [Conventional Commits](https://www.conventionalcommits.org/) va [Semantic Versioning](https://semver.org/) asosida avtomatik yuritiladi.
 
+# [2.21.0](https://github.com/mzoneuz/plaza-sdk/compare/v2.20.0...v2.21.0) (2026-10-23)
+
+
+### Features
+
+* **uzum-market:** add SellerOrdersList for the seller-finance orders API ([7bd0299](https://github.com/mzoneuz/plaza-sdk/commit/7bd0299c76eed232460167a8613f14546c8beb68))
+
 # [2.20.0](https://github.com/mzoneuz/plaza-sdk/compare/v2.19.0...v2.20.0) (2026-10-23)
 
 
