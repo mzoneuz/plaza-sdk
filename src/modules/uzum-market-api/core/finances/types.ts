@@ -23,6 +23,38 @@ export declare namespace FinancesTypes {
     shopId: number;
   }
 
+  export type SellerOrderStatus = "PROCESSING" | "TO_WITHDRAW" | "CANCELED" | (string & {});
+
+  /** `/v1/seller/finance/orders` yozuvi (zakazdagi bitta SKU) */
+  export interface SellerOrder {
+    id: number;
+    orderId: number;
+    status: SellerOrderStatus;
+    /** ISO sana */
+    orderedAt: string;
+    deliveredAt?: string;
+    shopId: number;
+    product: {
+      productId: number;
+      title: string;
+      skuId: number;
+      skuTitle: string;
+      imageUrl: string;
+    };
+    /** Sotilgan dona (bekor qilinganda 0) */
+    quantity: number;
+    /** Bir dona narxi */
+    sellPrice: number;
+    costPrice: number;
+    /** Qator bo'yicha jami komissiya */
+    commission: number;
+    /** Qator bo'yicha jami logistika */
+    logisticsFee: number;
+    forWithdraw: number;
+    withdrawnAmount: number;
+    returned?: { quantity: number; cause?: string; comment?: string };
+  }
+
   export interface Expense {
     id: number;
     dateCreated: number;
@@ -42,6 +74,15 @@ export declare namespace FinancesTypes {
 }
 
 export declare namespace FinancesApi {
+  export namespace SellerOrdersList {
+    export interface Response {
+      items: FinancesTypes.SellerOrder[];
+      /** Filtr bo'yicha jami yozuvlar soni */
+      total: number;
+      dailyTotals?: unknown[];
+    }
+  }
+
   export namespace SellerExpensesList {
     export interface Response {
       items: FinancesTypes.SellerExpense[];

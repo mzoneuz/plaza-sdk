@@ -19,3 +19,12 @@ export const ExpensesList: CallerParam<Params.ExpensesListParams, Types.Finances
 export const SellerExpensesList: CallerParam<Params.SellerExpensesListParams, Types.FinancesApi.SellerExpensesList.Response> = (http, { token, ...params }) => {
   return http.get("/v1/seller/finance/expenses", { params, headers: pasteAuthHeader(token) });
 };
+
+/**
+ * Sotuvlar (Финансы → Заказы): har bir yozuv — zakazdagi bitta SKU qatori, komissiya va logistika bilan.
+ * Token egasi ko'ra oladigan barcha sellerlar bo'yicha qaytadi. Cheklovlar: `size` ≤ 1000, `page * size` ≤ 50 000 —
+ * katta davrni sana oynalariga bo'lib oling. Do'konda operatsiya bo'lmasa 422 qaytaradi.
+ */
+export const SellerOrdersList: CallerParam<Params.SellerOrdersListParams, Types.FinancesApi.SellerOrdersList.Response> = (http, { token, ...params }) => {
+  return http.get("/v1/seller/finance/orders", { params, headers: pasteAuthHeader(token) });
+};
